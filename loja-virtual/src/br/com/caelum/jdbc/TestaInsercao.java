@@ -12,7 +12,7 @@ public class TestaInsercao {
 		String descricao = "Notebook i5";
 
 		// try fecha a connection automaticamente
-		try (Connection connection = Database.getConnection()) {
+		try (Connection connection = new ConnectionPool().getConnection()) {
 			connection.setAutoCommit(false);
 			// for sql injection
 			String sql = "INSERT INTO Produto (nome, descricao) values (?, ?)";

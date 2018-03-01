@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class TestaRemocao {
 	public static void main(String[] args) throws SQLException {
-		Connection connection = Database.getConnection();
+		Connection connection = new ConnectionPool().getConnection();
 		Statement stmt = connection.createStatement();
 		stmt.execute("delete from Produto where id > 4");
 		int count = stmt.getUpdateCount();
